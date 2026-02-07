@@ -1,1 +1,1 @@
-This folder contains all shared code for 2nd sem of CMSC-204 projects
+## This folder contains all shared code for CMSC-203 projects. ##
