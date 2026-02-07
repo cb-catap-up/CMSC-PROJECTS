@@ -1,0 +1,1 @@
+This folder contains all shared code for 2nd sem of CMSC-204 projects

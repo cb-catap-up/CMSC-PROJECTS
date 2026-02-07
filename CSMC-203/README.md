@@ -1,0 +1,1 @@
+This folder contains all shared code for CMSC-203 projects
