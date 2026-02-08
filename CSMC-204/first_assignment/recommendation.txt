@@ -1,0 +1,42 @@
+SDG 3: QUEUE for health monitoring
+Main Problems: lack of available healthcare
+This can be addressed with a queue system and a circular linked list ( priority system)
+
+Description
+
+Anda, Pangasinan (for people with less direct accesss to transport for medical problems)
+
+queues (providing medical care for everybody):
+- 3.4 By 2030, reduce by one third premature mortality from non-communicable diseases through prevention and treatment and promote mental health and well-being.
+- 3.5 Strengthen the prevention and treatment of substance abuse, including narcotic drug abuse and harmful use of alcohol.
+- 3.D Strengthen the capacity of all countries, in particular developing countries, for early warning, risk reduction and management of national and global health risks.
+- 3.9 By 2030, substantially reduce the number of deaths and illnesses from hazardous chemicals and air, water and soil pollution and contamination.
+- 3.7 By 2030, ensure universal access to sexual and reproductive health-care services, including for family planning, information and education, and the integration of reproductive health into national strategies and programmes.
+
+circular linked list ( priority system)
+- 3.1 By 2030, reduce the global maternal mortality ratio to less than 70 per 100,000 live births.
+- 3.2 By 2030, end preventable deaths of newborns and children under 5 years of age, 
+ with all countries aiming to reduce neonatal mortality to at least as low as 12 per 1,000 live births and 
+ under-5 mortality to at least as low as 25 per 1,000 live births.
+
+
+
+
+parameters for queue:
+- scheduling for people - 1h
+- people w/ serious conditions
+- people w/ comorbidities
+- people related/ has contact with transferable disease
+- people w/ disabilities that is not life threatening
+- age (<10) && (>60)
+- 11-17 least: priority 18 - 50
+
+Admin End:
+Calendar
+
+
+User End:
+Maria
+Time: 
+Date:
+Barangay:
