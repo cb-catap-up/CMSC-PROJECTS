@@ -41,3 +41,13 @@ Maria
 Time: 
 Date:
 Barangay:
+
+Application modules:
+Start screen
+    - Login
+    - Display of Calendar
+    - Search Patient Schedule
+Patient Class
+    attr:
+    -Barangay
+
