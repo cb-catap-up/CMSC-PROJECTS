@@ -1,7 +1,10 @@
-from patient import DataInsertion
+from Patient.DataInsertion import DataInsertion
+from Patient.MultipleCSV import MultipleCSV
 from Registration.Registration import Registration
 from Login.Login import Login
 from Helpers.Helpers import Helpers
+from constants import CSV_PATH, CSV_FOLDER_PATH
+
 
 class Application:
 
@@ -19,9 +22,20 @@ class Application:
         if is_user_logged_in:
 
             #### Data insertion via one single file
-            test = DataInsertion.load_csv('patients_sample.csv')  
-            print('Sample data')
+            test = DataInsertion.load_csv(CSV_PATH)  
+            
+            
+            print('\nSample data')
             print(test[0])
+            print('')
+
+
+            #### Data insertion via multiple file
+            test = MultipleCSV.folder_path(folder=CSV_FOLDER_PATH)
+            
+            
+            print('\nSample data')
+            print(test[0][0])
             print('')
 
             #### Data insertion via manual input
