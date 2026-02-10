@@ -4,13 +4,13 @@ from Helpers.Helpers import Helpers
 
 class Login:
 
-    def showStartScreen():
+    def show_start_screen():
         print(f"{START_SCREEN} \n")
 
         print(f"{DESCRIPTION} \n")
 
-    def loginUser():
-        Helpers.clearConsole()
+    def login_user():
+        Helpers.clear_console()
 
         fetcher = UserDataFetcher()
 

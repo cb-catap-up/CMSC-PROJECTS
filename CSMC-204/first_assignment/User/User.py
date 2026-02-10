@@ -7,13 +7,13 @@ class User:
         self.username = None
         self.password = None
     
-    def setUserName(self, username: str):
+    def set_user_name(self, username: str):
         self.username = username
 
-    def setPassWord(self, password: str):
+    def set_password(self, password: str):
         self.password = password
     
-    def createUser(self):
+    def create_user(self):
 
         if self.username and self.password:
 
