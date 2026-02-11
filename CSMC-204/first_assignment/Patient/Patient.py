@@ -29,22 +29,23 @@ class Patient:
             'disability':self.disability,
             'transferable_contact':self.transferable_contact
         }
+
     def _priority_score(self):
 
         total_score = 0
 
         if Helpers.convert_true_or_false_string_to_boolean(str(self.serious_condition)):
-            total_score += 10
+            total_score += 60
         if Helpers.convert_true_or_false_string_to_boolean(str(self.comorbidities)):
             total_score += 10
         if Helpers.convert_true_or_false_string_to_boolean(str(self.disability)):
-            total_score += 10
-        if Helpers.convert_true_or_false_string_to_boolean(str(self.transferable_contact)):
             total_score += 5
-        if int(self.age) < 12:
+        if Helpers.convert_true_or_false_string_to_boolean(str(self.transferable_contact)):
+            total_score += 30
+        if int(self.age) < 5:
             total_score += 5
         if int(self.age) > 60:
-            total_score += 10
+            total_score += 5
 
         return total_score
 

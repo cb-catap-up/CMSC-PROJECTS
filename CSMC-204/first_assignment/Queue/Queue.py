@@ -17,7 +17,7 @@ class Queue:
         for _ in range(number_to_remove):
             self.queue.pop(0)
         self.head = self.queue[0]
-
+    # return name and schedule
     def search(self, item):
         return item in self.queue
 
@@ -37,6 +37,6 @@ class Queue:
         else:
             print('no item in queue')
 
-    def getQueue(self):
+    def get_simple_queue(self):
         
         return self.queue
