@@ -1,3 +1,5 @@
+import os
+
 
 class Helpers:
 
@@ -33,3 +35,19 @@ class Helpers:
             return True
 
         return None
+    
+    def delete_all_files_from_folder(folder_path):
+
+        for filename in os.listdir(folder_path):
+            file_path = os.path.join(folder_path, filename)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+
+        print("All files deleted successfully.")
+
+    def is_folder_empty(folder_path):
+
+        if os.listdir(folder_path):
+            return False
+        else:
+            return True
