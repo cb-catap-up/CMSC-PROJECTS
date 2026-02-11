@@ -4,41 +4,64 @@ from Registration.Registration import Registration
 from Login.Login import Login
 from Helpers.Helpers import Helpers
 from constants import CSV_PATH, CSV_FOLDER_PATH
+from Queue.PatientLinkedListQueue import PatientLinkedListQueue
 
 
 class Application:
 
-    def startApplication():
+    def start_application():
+
         # #### User Login and Start Screen
-        Login.showStartScreen()
+        Login.show_start_screen()
         
         is_new_user = "Are you a new user Y / N?: "
         
-        if Helpers.validateYesOrNoInput(is_new_user):
-            Registration.registerNewUser()
+        if Helpers.validate_yes_or_no_input(is_new_user):
+            Registration.register_new_user()
 
-        is_user_logged_in = Login.loginUser()
-
+        is_user_logged_in = Login.login_user()
+        is_user_logged_in = True
         if is_user_logged_in:
-
+            print("--- SINGLE CSV ---")
             #### Data insertion via one single file
             test = DataInsertion.load_csv(CSV_PATH)  
-            
-            
-            print('\nSample data')
-            print(test[0])
-            print('')
+            queue = PatientLinkedListQueue()
+            for item in test:
+                # print(item['patient_id'])
+                queue.enqueue(
+                    patient_id=item['patient_id'],
+                    name=item['name'],
+                    age=item['age'],
+                    sex=item['sex'],
+                    barangay=item['barangay'],
+                    serious_condition=item['serious_condition'],
+                    comorbidities=item['comorbidities'],
+                    disability=item['disability'],
+                    transefrable=item['transferable_contact'],
+                )
+            queue.display_queue()
 
-
-            #### Data insertion via multiple file
+            ## Data insertion via multiple file
+            print("--- MULTIPLE CSV ---")
             test = MultipleCSV.folder_path(folder=CSV_FOLDER_PATH)
-            
-            
-            print('\nSample data')
-            print(test[0][0])
-            print('')
 
-            #### Data insertion via manual input
+            multiple_csv_queue = PatientLinkedListQueue()
+
+            for item in test:
+                for i in item:
+                    multiple_csv_queue.enqueue(
+                        patient_id=i['patient_id'],
+                        name=i['name'],
+                        age=i['age'],
+                        sex=i['sex'],
+                        barangay=i['barangay'],
+                        serious_condition=i['serious_condition'],
+                        comorbidities=i['comorbidities'],
+                        disability=i['disability'],
+                        transefrable=i['transferable_contact'],
+                    )
+            multiple_csv_queue.display_queue()
+            ### Data insertion via manual input
             print("--- Enter New Patient Details ---")
             user_input = [
                 input("Name: "),
@@ -52,34 +75,22 @@ class Application:
             ]
             current_manual_id = 1
             new_patient_json = DataInsertion.individual_manual_insert(user_input, current_manual_id)
-            test.append(new_patient_json)
+            multiple_csv_queue.enqueue(
+                        patient_id=new_patient_json['patient_id'],
+                        name=new_patient_json['name'],
+                        age=new_patient_json['age'],
+                        sex=new_patient_json['sex'],
+                        barangay=new_patient_json['barangay'],
+                        serious_condition=new_patient_json['serious_condition'],
+                        comorbidities=new_patient_json['comorbidities'],
+                        disability=new_patient_json['disability'],
+                        transefrable=new_patient_json['transferable_contact'],
+                    )
+            multiple_csv_queue.display_queue()
 
 
 if __name__ == "__main__":
 
-    Application.startApplication()
+    Application.start_application()
 
     print("End of Application")
-
-
-
-# .txt = db
-
-
-# def startApp():
-    
-#     login = login()
-
-#     patients = getPatients()
-
-#     queue = sortPatients(patients)
-
-#     add_calendar = showCalendar(doctors=3, queue, total_hours_of_caravan = 7, avg_consultation_time = 0.5, )
-
-
-# results = [
-#     {
-#         "name": 'test',
-#         "last_name": 'test'
-#     },
-# ]

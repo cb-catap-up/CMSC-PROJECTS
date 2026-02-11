@@ -1,11 +1,11 @@
 
 class Helpers:
 
-    def clearConsole():
+    def clear_console():
         print("\033c", end='')
 
 
-    def validateYesOrNoInput(input_question):
+    def validate_yes_or_no_input(input_question):
     
         while True:
             
@@ -22,3 +22,14 @@ class Helpers:
             if user_input.lower() != 'n' or user_input.lower() != 'y':
                 print("\nInvalid input. Please enter a valid one.")
                 continue
+    
+    def convert_true_or_false_string_to_boolean(text: str):
+        if text.lower() == 'false':
+
+            return False
+    
+        if text.lower() == 'true':
+
+            return True
+
+        return None
