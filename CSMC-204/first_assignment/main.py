@@ -4,65 +4,99 @@ from constants import CSV_FOLDER_PATH, QUEUE_PATH
 from Queue.PatientLinkedListQueue import PatientLinkedListQueue
 from Login.Login import Login
 from Registration.Registration import Registration
-
+import os
 
 class Application(SchedulingController):
     def __init__(self):
         super().__init__() 
 
-    # CLYDE
-    # Start screeen w/ description -- 
-    # login
-    # ask if they want to import, search, and show calendar
-    # exit or import or search
-    # import, by file or invidividual
-    # ask if they want to import, search, and show calendar (i, s, c, exit)
-
-    # CALENDAR //JOM
-    # number of doctors, total hrs of caravan, hrs of consultation per patient
-    # ['1st day ', '2nd day', '3rd day']
-    # ['1st person','1st person','1st person']
-
-    # [{'name': 'clyde', 'age': 27},{'name': 'dex', 'age': 18},{'name': 'clyde', 'age': 27}]
-
-    def start_application(self):
-
+  
+    def start_application(self, user_role):
         # initialize queue
         patient_queue = PatientLinkedListQueue()
 
-        # add items from previously added queue
-        patient_queue.add_queue_from_file(QUEUE_PATH)
-        
-        
-        search_input = Helpers.validate_yes_or_no_input("Search patient schedule? Y/N: \n")
+        # add items from previously added queue         
+        if os.path.exists(QUEUE_PATH): # Check first if there is a file 
+            patient_queue.add_queue_from_file(QUEUE_PATH)
 
-        if search_input:
-            self.search_patient(patient_queue)
-            return
+        if user_role == 1:
+            self.admin_menu(patient_queue)
+        elif user_role == 2:
+            self.doctor_menu(patient_queue)
+        elif user_role == 3:
+            self.patient_menu(patient_queue)
 
-        # ask user what to do
-        user_input = Helpers.validate_yes_or_no_input("Show patients calendar? Y/N: \n")
+    def admin_menu(self, patient_queue):
+        while True:
+            print("\n" + "=" * 50)
+            print("Medical Caravan - ADMIN Panel\n")
+            
+            print("1. Add patients by file")
+            print("2. Add individual patient")
+            print("3. Search patient in queue")
+            print("0. Exit")
+            print("=" * 50)
+            
+            choice = Helpers.validate_menu_choice(0, 3)
+            
+            if choice == 0:
+                break
 
-        if user_input:
-            self.show_calendar(patient_queue)
-            return
-        
-        if not user_input:
-            add_patient_by_file = Helpers.validate_yes_or_no_input("Add patients by file? Y/N: \n")
-            if add_patient_by_file:
+            elif choice == 1:
                 if Helpers.is_folder_empty(CSV_FOLDER_PATH):
-                    print('Import folder empty')
-                    return
-                self.add_by_files(patient_queue)
+                    print("WARNING: Import folder empty. Please add CSV files to continue.")
+                else:
+                    self.add_by_files(patient_queue)
+                    clarify_choice = Helpers.validate_yes_or_no_input("\nDo you want to save the patient to the system?  Y/N: \n")
+                    if clarify_choice:
+                        patient_queue.write_queue_to_file()    
 
-            if not add_patient_by_file:
-                add_individual_patient = Helpers.validate_yes_or_no_input("Add individual patient? Y/N: \n")
-                if add_individual_patient:
-                    self.add_indivdual(patient_queue)
-                    return
+            elif choice == 2:
+                self.add_indivdual(patient_queue)
+                clarify_choice = Helpers.validate_yes_or_no_input("\nDo you want to save the patient to the system?  Y/N: \n")
+                if clarify_choice:
+                    patient_queue.write_queue_to_file() 
 
+            elif choice == 3:
+               self.search_patient(patient_queue) # search_patient from controller
 
+    def doctor_menu(self, patient_queue):
+        while True:
+            print("\n" + "=" * 50)
+            print("Medical Caravan - DOCTOR Panel\n")
 
+            print("1. Peek next patient")
+            print("2. Complete consultation (remove patient)")
+            print("0. Exit")
+            print("=" * 50)
+            
+            choice = Helpers.validate_menu_choice(0, 2)
+            
+            if choice == 0:
+                break
+            elif choice == 1:
+                self.peek_next_patient(patient_queue) # peek
+            elif choice == 2:
+                self.complete_consultation(patient_queue) # ability to pop
+
+    def patient_menu(self, patient_queue):
+        while True:
+            print("\n" + "=" * 50)
+            print("Medical Caravan - PATIENT Panel\n")
+
+            print("1. Check my ranking in queue")
+            print("0. Exit")
+            print("=" * 50)
+            
+            choice = Helpers.validate_menu_choice(0, 1)
+            
+            if choice == 0:
+                break
+            elif choice == 1:
+                self.check_my_ranking(patient_queue)  
+                self.search_patient(patient_queue) # search_patient from controller             
+
+      
 if __name__ == "__main__":
     # #### User Login and Start Screen
     Login.show_start_screen()
@@ -75,7 +109,9 @@ if __name__ == "__main__":
 
     if is_user_logged_in:
         application = Application()
+        print("Type your role (1. admin, 2. doctor, 3. patient): ")      
+        user_role = Helpers.validate_menu_choice(1, 3)
 
-        application.start_application()
+        application.start_application(user_role)
 
     print("End of Application")

@@ -3,9 +3,26 @@ import os
 
 USER_PATH = os.path.join("database", "users.txt")
 
-START_SCREEN = "Place Holder"
+DESCRIPTION = """
+Isang modernong solusyon para sa mas mabilis
+at mas organisadong paglilingkod sa kalusugan! 
 
-DESCRIPTION = 'description'
+
+📢Serbisyong Pangkalusugan, Para sa Bayan ng Anda!📢
+Handog ni Mayor Damaso, "Handa na ang Anda!" 
+"""
+
+START_SCREEN = """
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║          MEDICAL CARAVAN QUEUE SYSTEM                      ║
+║                                                            ║
+║                    🏥 Bayan ng Anda                        ║
+║                    📋 Lalawigan ng Pangasinan              ║
+║                    👥 2026                                 ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+"""
 
 CSV_PATH = os.path.join("Import", "patients_sample.csv")
 

@@ -36,6 +36,18 @@ class Helpers:
 
         return None
     
+    def validate_menu_choice(min_option, max_option):
+        """Validate user menu input is within valid range."""
+        while True:
+            try:
+                choice = int(input(f"Select option ({min_option}-{max_option}): "))
+                if min_option <= choice <= max_option:
+                    return choice
+                else:
+                    print(f"Invalid choice. Please enter a number between {min_option} and {max_option}.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+    
     def delete_all_files_from_folder(folder_path):
 
         for filename in os.listdir(folder_path):
