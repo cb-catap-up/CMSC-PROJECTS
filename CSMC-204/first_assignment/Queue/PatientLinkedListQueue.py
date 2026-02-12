@@ -96,7 +96,7 @@ class PatientLinkedListQueue(Queue):
         if position == None:
             print('patient not in queue')
             return
-        return position
+        return position + 1
     
     def search(self, name, age):
 

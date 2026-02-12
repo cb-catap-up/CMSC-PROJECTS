@@ -1,4 +1,5 @@
 import os
+import math
 
 
 class Helpers:
@@ -63,3 +64,14 @@ class Helpers:
             return False
         else:
             return True
+    
+    def divide_array_by_number(items_array, number_of_arrays):
+        print(len(items_array))
+
+        result = [[] for _ in range(number_of_arrays)]
+        
+        for index, item in enumerate(items_array):
+            array_index = index % number_of_arrays
+            result[array_index].append(item)
+        
+        return result

@@ -5,6 +5,7 @@ from Queue.PatientLinkedListQueue import PatientLinkedListQueue
 from Login.Login import Login
 from Registration.Registration import Registration
 import os
+from Calendar.Calendar import Calendar
 
 class Application(SchedulingController):
     def __init__(self):
@@ -14,19 +15,22 @@ class Application(SchedulingController):
     def start_application(self, user_role):
         # initialize queue
         patient_queue = PatientLinkedListQueue()
+        # initialize calendar
+        calendar = Calendar()
 
         # add items from previously added queue         
         if os.path.exists(QUEUE_PATH): # Check first if there is a file 
             patient_queue.add_queue_from_file(QUEUE_PATH)
+            calendar.set_array_data(patient_queue.get_queue())
 
         if user_role == 1:
-            self.admin_menu(patient_queue)
+            self.admin_menu(patient_queue, calendar)
         elif user_role == 2:
-            self.doctor_menu(patient_queue)
+            self.doctor_menu(patient_queue, calendar)
         elif user_role == 3:
-            self.patient_menu(patient_queue)
+            self.patient_menu(patient_queue, calendar)
 
-    def admin_menu(self, patient_queue: PatientLinkedListQueue):
+    def admin_menu(self, patient_queue: PatientLinkedListQueue, calendar: Calendar):
         while True:
             print("\n" + "=" * 50)
             print("Medical Caravan - ADMIN Panel\n")
@@ -34,10 +38,12 @@ class Application(SchedulingController):
             print("1. Add patients by file")
             print("2. Add individual patient")
             print("3. Search patient in queue")
+            print("4. Update Daily Patien Count")
+            print("5. Check current calendar")
             print("0. Exit")
             print("=" * 50)
             
-            choice = Helpers.validate_menu_choice(0, 3)
+            choice = Helpers.validate_menu_choice(0, 5)
             
             if choice == 0:
                 break
@@ -58,19 +64,32 @@ class Application(SchedulingController):
                     patient_queue.write_queue_to_file() 
 
             elif choice == 3:
-                self.check_my_position(patient_queue)
+                self.check_my_position(patient_queue, calendar)
+            
+            elif choice ==4:
+                patient_number = int(input("Enter new daily patient count: "))
+                calendar.set_array_data(patient_queue.get_queue(), patient_number)
+            elif choice == 5:
+                Helpers.clear_console()
+                calendar.display_calendar() # show 2d array calendar
+                if Helpers.validate_yes_or_no_input(f"Continue Y/N?: "):
+                    Helpers.clear_console()
+                    continue
+                else:
+                    break
 
-    def doctor_menu(self, patient_queue: PatientLinkedListQueue):
+    def doctor_menu(self, patient_queue: PatientLinkedListQueue, calendar: Calendar):
         while True:
             print("\n" + "=" * 50)
             print("Medical Caravan - DOCTOR Panel\n")
 
             print("1. Peek next patient")
             print("2. Complete consultation (remove patient)")
+            print("3. Check current calendar")
             print("0. Exit")
             print("=" * 50)
             
-            choice = Helpers.validate_menu_choice(0, 2)
+            choice = Helpers.validate_menu_choice(0, 3)
             
             if choice == 0:
                 break
@@ -78,8 +97,16 @@ class Application(SchedulingController):
                 self.peek_next_patient(patient_queue) # peek
             elif choice == 2:
                 self.complete_consultation(patient_queue) # ability to pop
+            elif choice == 3:
+                Helpers.clear_console()
+                calendar.display_calendar() # show 2d array calendar
+                if Helpers.validate_yes_or_no_input(f"Continue Y/N?: "):
+                    Helpers.clear_console()
+                    continue
+                else:
+                    break
 
-    def patient_menu(self, patient_queue: PatientLinkedListQueue):
+    def patient_menu(self, patient_queue: PatientLinkedListQueue, calendar: Calendar):
         while True:
             print("\n" + "=" * 50)
             print("Medical Caravan - PATIENT Panel\n")
@@ -93,7 +120,7 @@ class Application(SchedulingController):
             if choice == 0:
                 break
             elif choice == 1:
-                self.check_my_position(patient_queue)
+                self.check_my_position(patient_queue, calendar)
 
             if Helpers.validate_yes_or_no_input("\nSearch another patient? Y/N: "):
                 Helpers.clear_console()
@@ -101,13 +128,18 @@ class Application(SchedulingController):
             else:
                 break
 
-    def check_my_position(self, patient_queue: PatientLinkedListQueue):
+    def check_my_position(self, patient_queue: PatientLinkedListQueue, calendar: Calendar):
         patient_details = self.search_patient(patient_queue)
         
         if patient_details != None:
             patient_postion = patient_queue.get_position(patient_details['name'], patient_details['age'])
-        
+            # get time and day
+            calendar.set_patient_time_array()
+            patent_time_and_day =  calendar.get_patient_time_and_day(patient_details['name'],
+                                                                     patient_details['age'])
             print(f"Patient position is: {patient_postion}\n")
+            print(f"Patient day of checkup is: {patent_time_and_day[1]}")
+            print(f"Patient time of checkup is: {patent_time_and_day[0]}")
             return
         
         print("\nPatient detail error")
@@ -132,5 +164,3 @@ if __name__ == "__main__":
         user_role = Helpers.validate_menu_choice(1, 3)
 
         application.start_application(user_role)
-
-    print("End of Application")
