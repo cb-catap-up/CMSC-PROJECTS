@@ -37,6 +37,6 @@ class Queue:
         else:
             print('no item in queue')
 
-    def get_simple_queue(self):
+    def simple_queue(self):
         
         return self.queue
