@@ -43,9 +43,13 @@ class SchedulingController:
                     disability=i['disability'],
                     transefrable=i['transferable_contact'],
                 )
-        Helpers.delete_all_files_from_folder(CSV_FOLDER_PATH)
+        # Helpers.delete_all_files_from_folder(CSV_FOLDER_PATH)
         # temporary show calendar
-        self.show_calendar()
+        # self.show_calendar()        
+        patient_queue.display_queue()
+
+        return patient_queue
+         
 
     def add_indivdual(self, patient_queue: PatientLinkedListQueue):
         Helpers.clear_console()
@@ -70,9 +74,35 @@ class SchedulingController:
             serious_condition=new_patient_json['serious_condition'],
             comorbidities=new_patient_json['comorbidities'],
             disability=new_patient_json['disability'],
-            transefrable=new_patient_json['transferable_contact'],)
+            transefrable=new_patient_json['transferable_contact'])       
         
-        if Helpers.validate_yes_or_no_input("Add another patient? Y/N: "):
-            self.search_patient(patient_queue)
+        
+        # if Helpers.validate_yes_or_no_input("Add another patient? Y/N: "):
+        #     self.search_patient(patient_queue)
         # temporary show calendar
-        self.show_calendar()
+        # self.show_calendar()
+
+        return patient_queue
+    
+    def peek_next_patient(self, patient_queue):
+        """Show the next patient without removing them"""
+        patient_queue.peek()
+
+    def complete_consultation(self, patient_queue):
+        """Remove patient after consultation (POP operation)"""        
+        if patient_queue.head is None:
+            print("No patients in queue")
+            return
+        
+        print("\nCompleting consultation for:")
+        patient_queue.peek()
+        
+        # Confirm before removing
+        confirm = Helpers.validate_yes_or_no_input("\nRemove this patient from queue? Y/N: ")
+        if confirm:
+            patient_queue.dequeue(1)
+            patient_queue.write_queue_to_file()  # Save changes
+            print("✓ Patient removed from queue")
+
+
+    

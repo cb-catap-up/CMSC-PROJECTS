@@ -91,20 +91,19 @@ class PatientLinkedListQueue(Queue):
 
         return item
     
-    def display_queue(self):
+    def display_queue(self, how_many = 3):
 
         current = self.head
-
-        print_item = ""
-
-        while current:
-            if current.next is not None:
-                print_item += f"{current.patient.name}: {current.patient.age} -> "
-            else:
-                print_item += f"{current.patient.name}: {current.patient.age}"
-
+        items = []
+        
+        print_item = f"\nDisplaying {how_many} sorted nodes (Name: age)\n"
+        
+        while how_many > 0 and current is not None:
+            items.append(f"{current.patient.name}: {current.patient.age}")
             current = current.next
-
+            how_many -= 1
+        
+        print_item += " -> ".join(items)
         print(print_item)
 
     def add_queue_from_file(self, file_name):
@@ -127,7 +126,7 @@ class PatientLinkedListQueue(Queue):
             print('error importing queue')
 
     def _update_queue(self):
-        
+        self.queue = []        # deduplication
         current = self.head
 
         while current:
@@ -154,7 +153,31 @@ class PatientLinkedListQueue(Queue):
 
         os.makedirs("database", exist_ok=True)
 
-        with open(QUEUE_PATH, "a") as file:
+        with open(QUEUE_PATH, "w") as file:
             for queue_item in self.queue:
                 file.write(f"{queue_item}\n")
 
+    def peek(self):
+        """
+        Show the next patient in queue without removing them
+        """
+        if self.head is None:
+            print("Queue is empty")
+            return None
+        
+        # Return the first patient's information
+        next_patient = {
+            'name': self.head.patient.name,
+            'age': self.head.patient.age,
+            'sex': self.head.patient.sex,
+        }
+        
+        print("\n" + "="*60)
+        print("NEXT PATIENT IN QUEUE (PEEK)")
+        print("="*60)
+        print(f"Name: {next_patient['name']}")
+        print(f"Age: {next_patient['age']}")
+        print(f"Sex: {next_patient['sex']}")     
+        print("="*60)
+        
+        return next_patient
