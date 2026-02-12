@@ -76,6 +76,27 @@ class PatientLinkedListQueue(Queue):
                 self.rear = None
         # update return queue every deletion
         self._update_queue()
+
+    def get_position(self, name, age):
+        position = None
+        queue_item = self.queue
+
+        try:
+            for i in range(len(queue_item)):
+                if (
+                    str(queue_item[i]['name']) == str(name)
+                    and int(queue_item[i]['age']) == int(age)
+                ):
+                    position = i
+                    break
+        except:
+            return
+
+            
+        if position == None:
+            print('patient not in queue')
+            return
+        return position
     
     def search(self, name, age):
 

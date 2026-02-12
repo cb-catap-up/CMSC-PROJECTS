@@ -11,17 +11,20 @@ class SchedulingController:
 
     def search_patient(self, patient_queue: PatientLinkedListQueue):
         Helpers.clear_console()
-        patient_name = str(input("Enter patient full name (Firstname Lastname): "))
-        patient_age = int(input('Enter patient age: '))
+        try:
+            patient_name = str(input("Enter patient full name (Firstname Lastname): "))
+            patient_age = int(input('Enter patient age: '))
+        except:
+            print("\nEnter Proper details")
+            return None
 
         patient_details = patient_queue.search(patient_name, patient_age)
         
-        # need to ouput output of calendar with date
-        print(patient_details['patient_id'])
+        if patient_details == {}:
+            print('No patient in queue')
+            return
 
-        if Helpers.validate_yes_or_no_input("Search another patient? Y/N: "):
-            self.search_patient(patient_queue)
-
+        return patient_details
 
     def show_calendar(self, patient_queue: PatientLinkedListQueue):
         # temporary show calendar
@@ -43,9 +46,7 @@ class SchedulingController:
                     disability=i['disability'],
                     transefrable=i['transferable_contact'],
                 )
-        # Helpers.delete_all_files_from_folder(CSV_FOLDER_PATH)
-        # temporary show calendar
-        # self.show_calendar()        
+       
         patient_queue.display_queue()
 
         return patient_queue
@@ -74,21 +75,17 @@ class SchedulingController:
             serious_condition=new_patient_json['serious_condition'],
             comorbidities=new_patient_json['comorbidities'],
             disability=new_patient_json['disability'],
-            transefrable=new_patient_json['transferable_contact'])       
-        
-        
-        # if Helpers.validate_yes_or_no_input("Add another patient? Y/N: "):
-        #     self.search_patient(patient_queue)
-        # temporary show calendar
-        # self.show_calendar()
+            transefrable=new_patient_json['transferable_contact'])
 
         return patient_queue
     
     def peek_next_patient(self, patient_queue):
+        Helpers.clear_console()
         """Show the next patient without removing them"""
         patient_queue.peek()
 
     def complete_consultation(self, patient_queue):
+        Helpers.clear_console()
         """Remove patient after consultation (POP operation)"""        
         if patient_queue.head is None:
             print("No patients in queue")

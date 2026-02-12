@@ -26,7 +26,7 @@ class Application(SchedulingController):
         elif user_role == 3:
             self.patient_menu(patient_queue)
 
-    def admin_menu(self, patient_queue):
+    def admin_menu(self, patient_queue: PatientLinkedListQueue):
         while True:
             print("\n" + "=" * 50)
             print("Medical Caravan - ADMIN Panel\n")
@@ -58,9 +58,9 @@ class Application(SchedulingController):
                     patient_queue.write_queue_to_file() 
 
             elif choice == 3:
-               self.search_patient(patient_queue) # search_patient from controller
+                self.check_my_position(patient_queue)
 
-    def doctor_menu(self, patient_queue):
+    def doctor_menu(self, patient_queue: PatientLinkedListQueue):
         while True:
             print("\n" + "=" * 50)
             print("Medical Caravan - DOCTOR Panel\n")
@@ -79,12 +79,12 @@ class Application(SchedulingController):
             elif choice == 2:
                 self.complete_consultation(patient_queue) # ability to pop
 
-    def patient_menu(self, patient_queue):
+    def patient_menu(self, patient_queue: PatientLinkedListQueue):
         while True:
             print("\n" + "=" * 50)
             print("Medical Caravan - PATIENT Panel\n")
 
-            print("1. Check my ranking in queue")
+            print("1. Check my position in queue")
             print("0. Exit")
             print("=" * 50)
             
@@ -93,12 +93,30 @@ class Application(SchedulingController):
             if choice == 0:
                 break
             elif choice == 1:
-                self.check_my_ranking(patient_queue)  
-                self.search_patient(patient_queue) # search_patient from controller             
+                self.check_my_position(patient_queue)
+
+            if Helpers.validate_yes_or_no_input("\nSearch another patient? Y/N: "):
+                Helpers.clear_console()
+                continue
+            else:
+                break
+
+    def check_my_position(self, patient_queue: PatientLinkedListQueue):
+        patient_details = self.search_patient(patient_queue)
+        
+        if patient_details != None:
+            patient_postion = patient_queue.get_position(patient_details['name'], patient_details['age'])
+        
+            print(f"Patient position is: {patient_postion}\n")
+            return
+        
+        print("\nPatient detail error")
+
+
 
       
 if __name__ == "__main__":
-    # #### User Login and Start Screen
+    #### User Login and Start Screen
     Login.show_start_screen()
     is_new_user = "Are you a new user Y / N?: "
     
@@ -109,6 +127,7 @@ if __name__ == "__main__":
 
     if is_user_logged_in:
         application = Application()
+        Helpers.clear_console()
         print("Type your role (1. admin, 2. doctor, 3. patient): ")      
         user_role = Helpers.validate_menu_choice(1, 3)
 
