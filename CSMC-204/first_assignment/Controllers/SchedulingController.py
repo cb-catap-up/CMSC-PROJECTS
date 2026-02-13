@@ -90,7 +90,7 @@ class SchedulingController:
         """Show the next patient without removing them"""
         patient_queue.peek()
 
-    def complete_consultation(self, patient_queue):
+    def complete_consultation(self, patient_queue, calendar):
         Helpers.clear_console()
         """Remove patient after consultation (POP operation)"""        
         if patient_queue.head is None:
@@ -105,5 +105,6 @@ class SchedulingController:
         if confirm:
             patient_queue.dequeue(1)
             patient_queue.write_queue_to_file()  # Save changes
+            calendar.set_array_data(patient_queue.get_queue()) # update data after removal
             print("✓ Patient removed from queue")
     
