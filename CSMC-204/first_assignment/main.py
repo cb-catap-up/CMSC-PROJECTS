@@ -141,7 +141,8 @@ class Application(SchedulingController):
             # get time and day
             calendar.set_patient_time_array()
             patent_time_and_day =  calendar.get_patient_time_and_day(patient_details['name'],
-                                                                     patient_details['age'])
+                                                                     patient_details['age'],
+                                                                     patient_postion)
             print(f"Patient position is: {patient_postion}\n")
             print(f"Patient day of checkup is: {patent_time_and_day[1]}")
             print(f"Patient time of checkup is: {patent_time_and_day[0]}")
