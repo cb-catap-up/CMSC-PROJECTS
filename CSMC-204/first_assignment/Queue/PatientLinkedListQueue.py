@@ -188,9 +188,9 @@ class PatientLinkedListQueue(Queue):
         
         # Return the first patient's information
         next_patient = {
-            'name': self.head.next.patient.name,
-            'age': self.head.next.patient.age,
-            'sex': self.head.next.patient.sex,
+            'name': self.head.patient.name,
+            'age': self.head.patient.age,
+            'sex': self.head.patient.sex,
         }
         
         print("\n" + "="*50)

@@ -22,7 +22,6 @@ class Application(SchedulingController):
         if os.path.exists(QUEUE_PATH): # Check first if there is a file 
             patient_queue.add_queue_from_file(QUEUE_PATH)
             calendar.set_array_data(patient_queue.get_queue())
-
         if user_role == 1:
             self.admin_menu(patient_queue, calendar)
         elif user_role == 2:
@@ -43,7 +42,6 @@ class Application(SchedulingController):
             print("5. Check current calendar")
             print("0. Exit")
             print("=" * 50)
-            
             choice = Helpers.validate_menu_choice(0, 5)
             
             if choice == 0:
@@ -56,13 +54,16 @@ class Application(SchedulingController):
                     self.add_by_files(patient_queue)
                     clarify_choice = Helpers.validate_yes_or_no_input("\nSave the patient to the system?  Y/N: ")
                     if clarify_choice:
-                        patient_queue.write_queue_to_file()    
+                        patient_queue.write_queue_to_file()
+                        calendar.set_array_data(patient_queue.get_queue())
 
             elif choice == 2:
                 self.add_indivdual(patient_queue)
                 clarify_choice = Helpers.validate_yes_or_no_input("\nSave the patient to the system?  Y/N: ")
                 if clarify_choice:
-                    patient_queue.write_queue_to_file() 
+                    patient_queue.write_queue_to_file()
+                    calendar.set_array_data(patient_queue.get_queue())
+                    Helpers.delete_all_files_from_folder(CSV_FOLDER_PATH)
 
             elif choice == 3:
                 self.check_my_position(patient_queue, calendar)
