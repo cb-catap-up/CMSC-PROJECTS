@@ -104,7 +104,7 @@ class PatientLinkedListQueue(Queue):
 
         for queue_item in self.queue:
             if (
-                str(queue_item['name']) == str(name)
+                str(queue_item['name']).lower() == str(name).lower()
                 and int(queue_item['age']) == int(age)
             ):
                 item = queue_item
@@ -188,17 +188,38 @@ class PatientLinkedListQueue(Queue):
         
         # Return the first patient's information
         next_patient = {
+            'name': self.head.next.patient.name,
+            'age': self.head.next.patient.age,
+            'sex': self.head.next.patient.sex,
+        }
+        
+        print("\n" + "="*50)
+        print("NEXT PATIENT IN QUEUE (PEEK)")        
+        print(f"Name: {next_patient['name']}")
+        print(f"Age: {next_patient['age']}")
+        print(f"Sex: {next_patient['sex']}")     
+        print("="*50)
+        
+        return next_patient
+    
+    def get_head(self):
+        """
+        Show the head in queue for removal
+        """
+        if self.head is None:
+            print("Queue is empty")
+            return None
+        
+        # Return the first patient's information
+        current_patient = {
             'name': self.head.patient.name,
             'age': self.head.patient.age,
             'sex': self.head.patient.sex,
         }
         
-        print("\n" + "="*60)
-        print("NEXT PATIENT IN QUEUE (PEEK)")
-        print("="*60)
-        print(f"Name: {next_patient['name']}")
-        print(f"Age: {next_patient['age']}")
-        print(f"Sex: {next_patient['sex']}")     
-        print("="*60)
+        print(f"Name: {current_patient['name']}")
+        print(f"Age: {current_patient['age']}")
+        print(f"Sex: {current_patient['sex']}")     
+        print("="*50)
         
-        return next_patient
+        return current_patient

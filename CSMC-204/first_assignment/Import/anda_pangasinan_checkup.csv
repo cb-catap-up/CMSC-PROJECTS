@@ -1,0 +1,252 @@
+name,age,sex,barangay,serious_condition,comorbidities,disability,transferable_contact
+Juan Dela Cruz,47,Male,Siapar,True,True,False,True
+Maria Santos,25,Female,Siapar,False,True,False,False
+Pedro Reyes,62,Male,Batiarao,True,True,True,False
+Ana Lopez,34,Female,Tori Tori,False,False,False,True
+Jose Garcia,58,Male,Siapar,True,True,False,True
+Elena Rodriguez,41,Female,Batiarao,False,True,False,False
+Ramon Fernandez,73,Male,Tori Tori,True,True,True,True
+Luzviminda Cruz,29,Female,Siapar,False,False,False,True
+Carlos Mendoza,55,Male,Batiarao,True,True,False,False
+Teresa Villanueva,38,Female,Tori Tori,False,True,False,True
+Roberto Santos,67,Male,Siapar,True,True,True,False
+Gloria Reyes,44,Female,Batiarao,False,False,False,True
+Manuel Torres,52,Male,Tori Tori,True,True,False,True
+Cecilia Ramos,31,Female,Siapar,False,True,False,False
+Fernando Castro,69,Male,Batiarao,True,True,True,False
+Josephine Garcia,36,Female,Tori Tori,False,False,False,True
+Antonio Flores,48,Male,Siapar,True,True,False,True
+Marilou Aquino,42,Female,Batiarao,False,True,False,False
+Domingo Reyes,71,Male,Tori Tori,True,True,True,True
+Lourdes Santiago,27,Female,Siapar,False,False,False,True
+Ricardo Lopez,59,Male,Batiarao,True,True,False,False
+Carmen Dela Cruz,45,Female,Tori Tori,False,True,False,True
+Gregorio Mendoza,63,Male,Siapar,True,True,True,False
+Rosario Villanueva,33,Female,Batiarao,False,False,False,True
+Ernesto Fernandez,56,Male,Tori Tori,True,True,False,True
+Virginia Ramos,39,Female,Siapar,False,True,False,False
+Luis Garcia,70,Male,Batiarao,True,True,True,True
+Nelia Santos,28,Female,Tori Tori,False,False,False,True
+Alberto Cruz,51,Male,Siapar,True,True,False,False
+Milagros Reyes,44,Female,Batiarao,False,True,False,True
+Rogelio Torres,66,Male,Tori Tori,True,True,True,False
+Fe Rodriguez,37,Female,Siapar,False,False,False,True
+Efren Castro,54,Male,Batiarao,True,True,False,True
+Elena Villanueva,32,Female,Tori Tori,False,True,False,False
+Romeo Mendoza,68,Male,Siapar,True,True,True,True
+Leticia Flores,41,Female,Batiarao,False,False,False,True
+Joaquin Aquino,60,Male,Tori Tori,True,True,False,False
+Soledad Garcia,35,Female,Siapar,False,True,False,True
+Bernardo Lopez,72,Male,Batiarao,True,True,True,False
+Jovita Ramos,46,Female,Tori Tori,False,False,False,True
+Teodoro Reyes,53,Male,Siapar,True,True,False,True
+Caridad Fernandez,29,Female,Batiarao,False,True,False,False
+Nestor Santos,64,Male,Tori Tori,True,True,True,True
+Remedios Cruz,38,Female,Siapar,False,False,False,True
+Pablo Villanueva,57,Male,Batiarao,True,True,False,False
+Perlita Garcia,43,Female,Tori Tori,False,True,False,True
+Isidro Lopez,69,Male,Siapar,True,True,True,False
+Zenaida Ramos,30,Female,Batiarao,False,False,False,True
+Felipe Torres,50,Male,Tori Tori,True,True,False,True
+Aurora Reyes,47,Female,Siapar,False,True,False,False
+Simon Castro,61,Male,Batiarao,True,True,False,True
+Consuelo Mendoza,36,Female,Tori Tori,False,False,False,True
+Crispin Aquino,74,Male,Siapar,True,True,True,False
+Esperanza Fernandez,42,Female,Batiarao,False,True,False,True
+Vicente Santos,55,Male,Tori Tori,True,True,False,False
+Trinidad Garcia,39,Female,Siapar,False,False,False,True
+Marcelo Villanueva,65,Male,Batiarao,True,True,True,True
+Adela Ramos,28,Female,Tori Tori,False,True,False,False
+Federico Lopez,58,Male,Siapar,True,True,False,True
+Visitacion Reyes,44,Female,Batiarao,False,False,False,True
+Benito Torres,67,Male,Tori Tori,True,True,True,False
+Evarista Cruz,33,Female,Siapar,False,True,False,True
+Arcadio Mendoza,52,Male,Batiarao,True,True,False,False
+Edna Garcia,40,Female,Tori Tori,False,False,False,True
+Norberto Flores,70,Male,Siapar,True,True,True,True
+Concepcion Aquino,31,Female,Batiarao,False,True,False,False
+Rufino Reyes,59,Male,Tori Tori,True,True,False,True
+Leonora Santos,45,Female,Siapar,False,False,False,True
+Eugenio Castro,63,Male,Batiarao,True,True,True,False
+Patrocinia Fernandez,37,Female,Tori Tori,False,True,False,True
+Maximo Villanueva,56,Male,Siapar,True,True,False,False
+Corazon Ramos,48,Female,Batiarao,False,False,False,True
+Honorio Garcia,71,Male,Tori Tori,True,True,True,True
+Ligaya Lopez,29,Female,Siapar,False,True,False,False
+Alejandro Reyes,54,Male,Batiarao,True,True,False,True
+Cristina Torres,42,Female,Tori Tori,False,False,False,True
+Valentin Cruz,66,Male,Siapar,True,True,True,False
+Adriana Mendoza,35,Female,Batiarao,False,True,False,True
+Florentino Aquino,61,Male,Tori Tori,True,True,False,False
+Salvacion Garcia,39,Female,Siapar,False,False,False,True
+Celestino Flores,68,Male,Batiarao,True,True,True,True
+Rosita Santos,44,Female,Tori Tori,False,True,False,False
+Godofredo Reyes,57,Male,Siapar,True,True,False,True
+Luz Fernandez,32,Female,Batiarao,False,False,False,True
+Prudencio Villanueva,70,Male,Tori Tori,True,True,True,False
+Apolonia Ramos,41,Female,Siapar,False,True,False,True
+Hilario Castro,53,Male,Batiarao,True,True,False,False
+Bienvenida Garcia,38,Female,Tori Tori,False,False,False,True
+Silvino Lopez,64,Male,Siapar,True,True,True,True
+Socorro Reyes,46,Female,Batiarao,False,True,False,False
+Reynaldo Torres,59,Male,Tori Tori,True,True,False,True
+Clarita Santos,33,Female,Siapar,False,False,False,True
+Wenceslao Cruz,72,Male,Batiarao,True,True,True,False
+Leonila Mendoza,40,Female,Tori Tori,False,True,False,True
+Emilio Fernandez,55,Male,Siapar,True,True,False,False
+Purificacion Aquino,37,Female,Batiarao,False,False,False,True
+Faustino Garcia,69,Male,Tori Tori,True,True,True,True
+Avelina Villanueva,30,Female,Siapar,False,True,False,False
+Oscar Ramos,62,Male,Batiarao,True,True,False,True
+Lilian Reyes,43,Female,Tori Tori,False,False,False,True
+Rene Castro,58,Male,Siapar,True,True,True,False
+Esmeralda Lopez,36,Female,Batiarao,False,True,False,True
+Bonifacio Santos,74,Male,Tori Tori,True,True,False,False
+Narcisa Flores,48,Female,Siapar,False,False,False,True
+Delfin Garcia,65,Male,Batiarao,True,True,True,True
+Asuncion Reyes,29,Female,Tori Tori,False,True,False,False
+Lorenzo Mendoza,56,Male,Siapar,True,True,False,True
+Josefina Torres,44,Female,Batiarao,False,False,False,True
+Anacleto Cruz,67,Male,Tori Tori,True,True,True,False
+Felisa Aquino,39,Female,Siapar,False,True,False,True
+Jacinto Villanueva,52,Male,Batiarao,True,True,False,False
+Pilar Ramos,41,Female,Tori Tori,False,False,False,True
+Tomas Garcia,70,Male,Siapar,True,True,True,True
+Brigida Reyes,35,Female,Batiarao,False,True,False,False
+Cipriano Fernandez,61,Male,Tori Tori,True,True,False,True
+Modesta Lopez,47,Female,Siapar,False,False,False,True
+Eleuterio Santos,63,Male,Batiarao,True,True,True,False
+Encarnacion Castro,38,Female,Tori Tori,False,True,False,True
+Generoso Mendoza,57,Male,Siapar,True,True,False,False
+Guadalupe Aquino,45,Female,Batiarao,False,False,False,True
+Hernando Garcia,68,Male,Tori Tori,True,True,True,True
+Iluminada Reyes,32,Female,Siapar,False,True,False,False
+Julian Torres,59,Male,Batiarao,True,True,False,True
+Katrina Cruz,43,Female,Tori Tori,False,False,False,True
+Leandro Flores,71,Male,Siapar,True,True,True,False
+Maura Villanueva,36,Female,Batiarao,False,True,False,True
+Nicanor Ramos,54,Male,Tori Tori,True,True,False,False
+Ofelia Garcia,49,Female,Siapar,False,False,False,True
+Perfecto Reyes,66,Male,Batiarao,True,True,True,True
+Quintina Santos,31,Female,Tori Tori,False,True,False,False
+Rodolfo Mendoza,60,Male,Siapar,True,True,False,True
+Severina Lopez,42,Female,Batiarao,False,False,False,True
+Teofilo Castro,73,Male,Tori Tori,True,True,True,False
+Ursula Fernandez,37,Female,Siapar,False,True,False,True
+Victorino Garcia,55,Male,Batiarao,True,True,False,False
+Wilfredo Aquino,64,Male,Tori Tori,True,True,True,True
+Xenia Reyes,28,Female,Siapar,False,False,False,True
+Yolanda Torres,46,Female,Batiarao,False,True,False,False
+Zosimo Cruz,69,Male,Tori Tori,True,True,False,True
+Agripina Villanueva,34,Female,Siapar,False,False,False,True
+Bartolome Ramos,58,Male,Batiarao,True,True,True,False
+Catalina Mendoza,41,Female,Tori Tori,False,True,False,True
+Doroteo Santos,67,Male,Siapar,True,True,False,False
+Eufemia Flores,39,Female,Batiarao,False,False,False,True
+Fortunato Garcia,62,Male,Tori Tori,True,True,True,True
+Gregoria Reyes,44,Female,Siapar,False,True,False,False
+Herminia Fernandez,30,Female,Batiarao,False,False,False,True
+Ignacio Lopez,75,Male,Tori Tori,True,True,True,False
+Jovencia Castro,48,Female,Siapar,False,True,False,True
+Krisanta Mendoza,35,Female,Batiarao,False,False,False,True
+Leoncio Aquino,70,Male,Tori Tori,True,True,False,False
+Marcela Garcia,43,Female,Siapar,False,True,False,True
+Narciso Reyes,56,Male,Batiarao,True,True,True,True
+Odelia Santos,29,Female,Tori Tori,False,False,False,False
+Pancracio Torres,64,Male,Siapar,True,True,False,True
+Querubin Cruz,38,Female,Batiarao,False,True,False,False
+Rosendo Villanueva,61,Male,Tori Tori,True,True,True,True
+Sabina Ramos,45,Female,Siapar,False,False,False,True
+Toribio Garcia,72,Male,Batiarao,True,True,False,False
+Urbana Lopez,33,Female,Tori Tori,False,True,False,True
+Venancio Castro,59,Male,Siapar,True,True,True,False
+Wilda Fernandez,40,Female,Batiarao,False,False,False,True
+Xavier Reyes,68,Male,Tori Tori,True,True,False,True
+Ysabel Santos,36,Female,Siapar,False,True,False,False
+Zacarias Aquino,65,Male,Batiarao,True,True,True,True
+Alma Villanueva,31,Female,Tori Tori,False,False,False,True
+Basilio Garcia,57,Male,Siapar,True,True,False,False
+Candida Mendoza,49,Female,Batiarao,False,True,False,True
+Dionisio Torres,73,Male,Tori Tori,True,True,True,False
+Ester Reyes,37,Female,Siapar,False,False,False,True
+Felix Cruz,60,Male,Batiarao,True,True,False,True
+Gorgonia Flores,44,Female,Tori Tori,False,True,False,False
+Hermogenes Santos,66,Male,Siapar,True,True,True,True
+Irene Garcia,32,Female,Batiarao,False,False,False,True
+Jeremias Reyes,54,Male,Tori Tori,True,True,False,False
+Karla Fernandez,41,Female,Siapar,False,True,False,True
+Lauro Villanueva,69,Male,Batiarao,True,True,True,False
+Marcelina Ramos,38,Female,Tori Tori,False,False,False,True
+Nemesio Castro,62,Male,Siapar,True,True,False,True
+Olimpia Lopez,47,Female,Batiarao,False,True,False,False
+Porfirio Santos,71,Male,Tori Tori,True,True,True,True
+Quirina Mendoza,35,Female,Siapar,False,False,False,True
+Rufina Aquino,56,Female,Batiarao,True,True,False,True
+Silverio Garcia,64,Male,Tori Tori,True,True,True,False
+Teodula Reyes,29,Female,Siapar,False,True,False,False
+Urbano Torres,58,Male,Batiarao,True,True,False,True
+Viviana Cruz,43,Female,Tori Tori,False,False,False,True
+Waldo Fernandez,67,Male,Siapar,True,True,True,True
+Xenia Villanueva,30,Female,Batiarao,False,True,False,False
+Ysidro Ramos,55,Male,Tori Tori,True,True,False,True
+Zenaida Garcia,46,Female,Siapar,False,False,False,True
+Anselmo Reyes,70,Male,Batiarao,True,True,True,False
+Belen Santos,39,Female,Tori Tori,False,True,False,True
+Cesar Mendoza,63,Male,Siapar,True,True,False,False
+Dolores Castro,41,Female,Batiarao,False,False,False,True
+Eriberto Lopez,59,Male,Tori Tori,True,True,True,True
+Flora Aquino,34,Female,Siapar,False,True,False,False
+Gaudencio Villanueva,72,Male,Batiarao,True,True,False,True
+Hilaria Garcia,45,Female,Tori Tori,False,False,False,True
+Ismael Reyes,57,Male,Siapar,True,True,True,False
+Jacoba Torres,38,Female,Batiarao,False,True,False,True
+Baby Girl Santos,0,Female,Siapar,False,False,False,True
+Baby Boy Reyes,1,Male,Batiarao,False,False,False,False
+Princess Lopez,4,Female,Tori Tori,False,False,False,True
+Jun-Jun Garcia,2,Male,Siapar,False,False,False,False
+Maria Cristina Flores,7,Female,Batiarao,False,False,False,True
+Angelo Villanueva,5,Male,Tori Tori,False,False,False,True
+Andrea Mae Cruz,13,Female,Siapar,False,False,False,True
+John Paul Ramos,15,Male,Batiarao,False,False,False,False
+Sarah Jane Mendoza,12,Female,Tori Tori,False,False,False,True
+Michael Angelo Aquino,14,Male,Siapar,False,True,False,False
+Kristine Joy Fernandez,9,Female,Batiarao,False,False,False,True
+Christian Rey Castro,11,Male,Tori Tori,False,False,False,False
+Angelica Marie Torres,16,Female,Siapar,False,False,True,True
+Mark Anthony Dela Cruz,17,Male,Batiarao,False,False,False,False
+Camille Ann Santos,8,Female,Tori Tori,False,False,False,True
+Baby James Garcia,1,Male,Siapar,False,False,False,False
+Sofia Beatriz Reyes,3,Female,Batiarao,False,False,False,True
+Rafael Lorenzo Ramos,6,Male,Tori Tori,True,True,False,False
+Isabella Marie Lopez,10,Female,Siapar,False,False,False,True
+Gabriel Antonio Castro,12,Male,Batiarao,False,False,False,False
+Nicole Ashley Flores,14,Female,Tori Tori,False,False,False,True
+Joshua Miguel Aquino,15,Male,Siapar,False,False,False,False
+Patricia Anne Villanueva,17,Female,Batiarao,False,False,False,True
+Baby Girl Mendoza,0,Female,Tori Tori,False,False,False,False
+Kyle Andrei Fernandez,4,Male,Siapar,False,False,False,True
+Samantha Nicole Garcia,6,Female,Batiarao,True,False,False,False
+Baby Boy Cruz,2,Male,Tori Tori,False,False,False,True
+Chloe Marie Reyes,8,Female,Siapar,False,False,False,False
+Vincent Paul Santos,10,Male,Batiarao,False,False,False,True
+Danica Rose Torres,13,Female,Tori Tori,False,False,False,False
+Baby Girl Ramos,0,Female,Siapar,False,False,False,True
+Baby Boy Villanueva,1,Male,Batiarao,False,False,False,False
+Zion Gabriel Lopez,3,Male,Tori Tori,True,False,False,True
+Ma. Cielo Castro,5,Female,Siapar,False,False,False,False
+Jasmine Nicole Aquino,7,Female,Batiarao,False,False,False,True
+Baby Boy Flores,0,Male,Tori Tori,False,True,False,False
+Princess Diana Garcia,9,Female,Siapar,False,False,False,True
+Emmanuelle Cruz,11,Male,Batiarao,True,False,False,False
+Baby Girl Mendoza,0,Female,Tori Tori,False,False,False,True
+Kian Andrey Reyes,14,Male,Siapar,False,False,False,False
+Francheska Santos,16,Female,Batiarao,False,False,False,True
+Baby Boy Torres,0,Male,Tori Tori,True,False,False,False
+Ma. Angelica Ramos,12,Female,Siapar,False,False,False,True
+Renz Christian Lopez,15,Male,Batiarao,False,False,False,False
+Baby Girl Garcia,1,Female,Tori Tori,False,False,False,True
+Baby Boy Fernandez,0,Male,Siapar,False,False,False,False
+Nathalie Ann Castro,13,Female,Batiarao,False,False,False,True
+Baby Girl Villanueva,0,Female,Tori Tori,False,True,False,False
+JC Reyes,17,Male,Siapar,False,False,False,True
+Baby Boy Aquino,2,Male,Batiarao,False,False,False,False

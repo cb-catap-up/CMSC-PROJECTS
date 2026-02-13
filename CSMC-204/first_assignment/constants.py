@@ -24,6 +24,10 @@ START_SCREEN = """
 ╚════════════════════════════════════════════════════════════╝
 """
 
+LOGIN = f"""Login to your account
+{ "=" * 50} """
+
+
 CSV_PATH = os.path.join("Import", "patients_sample.csv")
 
 QUEUE_PATH = os.path.join('Database', 'queue.txt')

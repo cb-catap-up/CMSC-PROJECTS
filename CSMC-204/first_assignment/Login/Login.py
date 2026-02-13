@@ -1,4 +1,4 @@
-from constants import DESCRIPTION, START_SCREEN
+from constants import DESCRIPTION, START_SCREEN, LOGIN
 from User.UserDataFetcher import UserDataFetcher
 from Helpers.Helpers import Helpers
 
@@ -14,7 +14,9 @@ class Login:
 
         fetcher = UserDataFetcher()
 
-        username = str(input("\nEnter Username: "))
+        print(f"{LOGIN} \n")
+
+        username = str(input("Enter Username: "))
 
         password = str(input("\nEnter Password: "))
 
