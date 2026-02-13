@@ -31,6 +31,7 @@ class Application(SchedulingController):
             self.patient_menu(patient_queue, calendar)
 
     def admin_menu(self, patient_queue: PatientLinkedListQueue, calendar: Calendar):
+        Helpers.clear_console()
         while True:
             print("\n" + "=" * 50)
             print("Medical Caravan - ADMIN Panel\n")
@@ -38,7 +39,7 @@ class Application(SchedulingController):
             print("1. Add patients by file")
             print("2. Add individual patient")
             print("3. Search patient in queue")
-            print("4. Update Daily Patien Count")
+            print("4. Update Daily Patient Count")
             print("5. Check current calendar")
             print("0. Exit")
             print("=" * 50)
@@ -53,13 +54,13 @@ class Application(SchedulingController):
                     print("WARNING: Import folder empty. Please add CSV files to continue.")
                 else:
                     self.add_by_files(patient_queue)
-                    clarify_choice = Helpers.validate_yes_or_no_input("\nDo you want to save the patient to the system?  Y/N: \n")
+                    clarify_choice = Helpers.validate_yes_or_no_input("\nSave the patient to the system?  Y/N: ")
                     if clarify_choice:
                         patient_queue.write_queue_to_file()    
 
             elif choice == 2:
                 self.add_indivdual(patient_queue)
-                clarify_choice = Helpers.validate_yes_or_no_input("\nDo you want to save the patient to the system?  Y/N: \n")
+                clarify_choice = Helpers.validate_yes_or_no_input("\nSave the patient to the system?  Y/N: ")
                 if clarify_choice:
                     patient_queue.write_queue_to_file() 
 
@@ -69,6 +70,7 @@ class Application(SchedulingController):
             elif choice ==4:
                 patient_number = int(input("Enter new daily patient count: "))
                 calendar.set_array_data(patient_queue.get_queue(), patient_number)
+
             elif choice == 5:
                 Helpers.clear_console()
                 calendar.display_calendar() # show 2d array calendar
@@ -79,6 +81,7 @@ class Application(SchedulingController):
                     break
 
     def doctor_menu(self, patient_queue: PatientLinkedListQueue, calendar: Calendar):
+        Helpers.clear_console()
         while True:
             print("\n" + "=" * 50)
             print("Medical Caravan - DOCTOR Panel\n")
@@ -107,6 +110,7 @@ class Application(SchedulingController):
                     break
 
     def patient_menu(self, patient_queue: PatientLinkedListQueue, calendar: Calendar):
+        Helpers.clear_console()
         while True:
             print("\n" + "=" * 50)
             print("Medical Caravan - PATIENT Panel\n")
@@ -129,6 +133,7 @@ class Application(SchedulingController):
                 break
 
     def check_my_position(self, patient_queue: PatientLinkedListQueue, calendar: Calendar):
+        Helpers.clear_console()
         patient_details = self.search_patient(patient_queue)
         
         if patient_details != None:
@@ -149,6 +154,7 @@ class Application(SchedulingController):
       
 if __name__ == "__main__":
     #### User Login and Start Screen
+    Helpers.clear_console()
     Login.show_start_screen()
     is_new_user = "Are you a new user Y / N?: "
     

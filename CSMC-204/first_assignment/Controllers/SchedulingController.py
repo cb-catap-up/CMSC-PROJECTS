@@ -5,6 +5,7 @@ from constants import CSV_FOLDER_PATH
 from Patient.DataInsertion import DataInsertion
 from datetime import datetime
 
+
 class SchedulingController:
     def __init__(self):
         pass
@@ -31,29 +32,34 @@ class SchedulingController:
         patient_queue.display_queue()
 
     def add_by_files(self, patient_queue: PatientLinkedListQueue):
+        Helpers.clear_console()
+        print('Add patients by file')
+        print("\nDrop your additional CSV file in the Import folder. \nNote: The folder contains default patient data already.")    
+        confirm = Helpers.validate_yes_or_no_input("\nProcess the current folder? Y/N: ")
+        if confirm:
+            csv_file = MultipleCSV.folder_path(folder=CSV_FOLDER_PATH)
+            for item in csv_file:
+                for i in item:
+                    patient_queue.enqueue(
+                        patient_id=i['patient_id'],
+                        name=i['name'],
+                        age=i['age'],
+                        sex=i['sex'],
+                        barangay=i['barangay'],
+                        serious_condition=i['serious_condition'],
+                        comorbidities=i['comorbidities'],
+                        disability=i['disability'],
+                        transefrable=i['transferable_contact'],
+                    )
         
-        csv_file = MultipleCSV.folder_path(folder=CSV_FOLDER_PATH)
-        for item in csv_file:
-            for i in item:
-                patient_queue.enqueue(
-                    patient_id=i['patient_id'],
-                    name=i['name'],
-                    age=i['age'],
-                    sex=i['sex'],
-                    barangay=i['barangay'],
-                    serious_condition=i['serious_condition'],
-                    comorbidities=i['comorbidities'],
-                    disability=i['disability'],
-                    transefrable=i['transferable_contact'],
-                )
-       
-        patient_queue.display_queue()
+            patient_queue.display_queue()
 
-        return patient_queue
+            return patient_queue               
          
 
     def add_indivdual(self, patient_queue: PatientLinkedListQueue):
         Helpers.clear_console()
+        print('Manually add a patient\n')
         user_input = [
             input("Name: "),
             input("Age: "),
@@ -92,7 +98,7 @@ class SchedulingController:
             return
         
         print("\nCompleting consultation for:")
-        patient_queue.peek()
+        patient_queue.get_head()
         
         # Confirm before removing
         confirm = Helpers.validate_yes_or_no_input("\nRemove this patient from queue? Y/N: ")
@@ -100,6 +106,4 @@ class SchedulingController:
             patient_queue.dequeue(1)
             patient_queue.write_queue_to_file()  # Save changes
             print("✓ Patient removed from queue")
-
-
     
