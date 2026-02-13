@@ -99,7 +99,7 @@ class Application(SchedulingController):
             elif choice == 1:
                 self.peek_next_patient(patient_queue) # peek
             elif choice == 2:
-                self.complete_consultation(patient_queue) # ability to pop
+                self.complete_consultation(patient_queue, calendar) # ability to pop
             elif choice == 3:
                 Helpers.clear_console()
                 calendar.display_calendar() # show 2d array calendar
